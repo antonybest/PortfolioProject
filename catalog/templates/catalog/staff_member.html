@@ -1,0 +1,46 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+    {% if perms.catalog.can_view_staff_member %}
+
+<div class="main">
+
+    <h1>Staff Members Page</h1>
+
+    <h3><strong>Welcome Staff Members:</strong></h3>
+
+    {% if perms.catalog.can_view_staff_member %}
+        <label>
+        {% for bookinst in bookinstance_list %}
+           <li class="{% if bookinst.is_overdue %}text alert-danger
+           {% elif bookinst.status == 'a'%}text alert-success
+           {% elif bookinst.status == 're'%}text alert-light
+           {% else %}text alert-warning{% endif %}">
+           <ul>{{ bookinst.get_status_display }}</ul>
+               <ul>Borrower:- {{ bookinst.borrower }}</ul>
+               <ul>Title:({{ bookinst.book.title }})</ul>
+               <ul>Due Back By Date: - ({{ bookinst.due_back }})</ul>
+            <ul>
+            <input class="bg-transparent" type="button" onclick="location.href='{% url 'renew-book-librarian' bookinst.id %}'" value="renew">
+            </ul>
+           </li>
+            {% endfor %}
+        </label>
+    {% endif %}
+
+</div>
+
+     {% else %}
+        <div class="main">
+        <div>
+            <div>
+        <center>
+        <h1>STAFF MEMBERS ONLY</h1>
+        </center>
+            </div>
+        </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

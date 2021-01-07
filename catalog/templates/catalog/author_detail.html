@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base_generic.html" %}
+{% block content %}
+{% block title %}<title>Author Detail</title>{% endblock %}
+
+<h1>Author: {{ author.first_name }} {{ author.last_name }}</h1>
+
+    <h6>{{ author.Date_of_birth }} - {{ author.date_of_death }}</h6>
+
+    <h3>Books</h3>
+    <p>
+
+    </p>
+    <div>
+    {% if book_list %}
+    <ul>
+    {% for book in book_list %}
+        <li>
+            <h5>{{ book.title }}</h5>
+            <strong>({{ book.author }})</strong>
+            <p>{{ book.summary }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>There are no books in the library</p>
+    {% endif %}
+    </div>
+{% endblock %}

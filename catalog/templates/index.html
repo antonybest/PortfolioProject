@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+{% extends "base_generic.html" %}
+{% block title %}<title>Home</title>{% endblock %}
+{% block content %}
+    <h1>Local Library Home</h1>
+    <p>Welcome to Local library, a website developed by <em>Antony Best</em>!</p>
+    <h2>Dynamic content</h2>
+    <p>The Library has the following record counts</p>
+    <ul>
+        <li><strong>Books:</strong> {{ num_books }}</li>
+        <li><strong>Copies:</strong> {{ num_instances }}</li>
+        <li><strong>Copies available:</strong> {{ num_instances_available }}</li>
+        <li><strong>Genres:</strong> {{ num_genres }}</li>
+        <li><strong>Books containing python:</strong> {{ num_casesensitive_books_available }}</li>
+        <li><strong>Authors:</strong>{{ num_authors }}</li>
+    </ul>
+
+    <p>You have visited this page {{ num_visits }} time{% if num_visits > 1 %}s{% endif %}.</p>
+{% endblock %}
