@@ -13,7 +13,7 @@ Admin users can create and manage models. The admin has been optimised (the basi
 Librarians can renew reserved books
 Local Library Model
 
-![](PortfoliProject//local_library_model_diagram.png)
+![](https://github.com/antonybest/PortfolioProject/blob/master/local_library_model_diagram.png)
 
 Quick Start
 
